@@ -32,7 +32,6 @@ class Mainnote extends Component {
     if (result != null) {
       return result.map((d) => (
         <tr key={d._id}>
-          <td width="10">{d._id}</td>
           <td><i className="fa fa-book" /></td>
           <td style={{ color: "blue" }} >
             <button style = { {border: 'none', background: 'transparent'} } onClick = {(e) => {this.props.setNoteid(this.props.history,d._id)}}>

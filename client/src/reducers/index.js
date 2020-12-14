@@ -7,6 +7,7 @@ import showdeviceReducer from './showdevice.reducer'
 import noteReducer from './note.reducer'
 import noteviewReducer from './noteview.reducer'
 import profileReducer from './profile.reducer'
+import adminReducer from './admin.reducer'
 
 export default combineReducers({registerReducer, 
     loginReducer, 
@@ -15,4 +16,5 @@ export default combineReducers({registerReducer,
     showdeviceReducer,
     noteReducer,
     noteviewReducer,
-    profileReducer})
+    profileReducer,
+    adminReducer})

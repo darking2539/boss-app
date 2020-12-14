@@ -1,0 +1,46 @@
+/* SVG as pseudo element's content */
+.ion-ios-book-book {
+    content: url('https://api.iconify.design/ion:book-outline.svg?color=white&height=16');
+    margin: auto;
+    width: 100%;
+    padding: 10px;
+ }
+ 
+ /* SVG as pseudo element's background image */
+ .ion-ios-people-people {
+    content: url('https://api.iconify.design/ion:person.svg?color=white&height=80');
+    margin: auto;
+    width: 100%;
+    padding: 10px;
+ }
+
+ .ion-ios-peoples-peoples {
+    content: url('https://api.iconify.design/ion:people-sharp.svg?color=white&height=16');
+    margin: auto;
+    width: 100%;
+    padding: 10px;
+ }
+
+ .ion-ios-phone-phone {
+    content: url('https://api.iconify.design/ion:phone-portrait-sharp.svg?color=white&height=16');
+    margin: auto;
+    width: 100%;
+    padding: 10px;
+ }
+ 
+ .info-box-text {
+    margin-left: 5px;
+    margin-top: 9.5px;
+    margin-bottom: 5px;
+}
+
+.info-box-number {
+    margin-left: 5px;
+    margin-bottom: 20px;
+}
+
+
+.info-box {
+    border: 2px solid black;
+}
+

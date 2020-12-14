@@ -3,6 +3,34 @@ const router = express.Router();
 const keys = require("../../config/keys");
 const Note = require("../../models/notes");  // Load User model
 
+// @route POST /api/note/getallnote
+// @desc Note create
+// @access Public
+router.get("/getallnote", async (req,res) =>{
+  try {
+    Note.find()
+      .sort({ Time: -1 })
+      .limit(100)
+      .exec(function(err, data) {
+        if (err) {
+          const result = {
+            error: true,
+            error_msg: err.message
+          };
+          return res.status(500).json(result);
+        }
+        return res.json(data);
+      });
+  } catch (err) {
+    console.log(err);
+    const result = {
+      error: true,
+      error_msg: err.message
+    };
+    return res.status(500).json(result);
+  }
+})
+
 
 // @route POST /api/note/create
 // @desc Note create

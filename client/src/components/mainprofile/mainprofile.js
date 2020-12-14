@@ -18,7 +18,7 @@ class Mainprofile extends Component {
       firstname: "",
       lasname: "",
       birthdate: "",
-      image: "5fd4482600e2d40fecb26d55.jpg",
+      image: "",
     };
   }
 
@@ -424,47 +424,28 @@ class Mainprofile extends Component {
                 </ul>
                 <div className="tab-content">
                   <div className="active tab-pane" id="activity">
-                    <p>Test Posonal Data</p>
-                    <p>
-                      {this.isProfile() && this.props.profileReducer.result._id}
-                    </p>
-                    <p>
-                      Firstname:{" "}
-                      {this.isProfile() &&
-                        this.props.profileReducer.result.firstname}
-                    </p>
-                    <p>
-                      Lastname:{" "}
-                      {this.isProfile() &&
-                        this.props.profileReducer.result.lastname}
-                    </p>
-                    <p>
-                      BirthDate:{" "}
-                      {this.isProfile() &&
-                        this.props.profileReducer.result.birthdate}
-                    </p>
-                    <p>
-                      Picture:{" "}
-                      {this.isProfile() &&
-                        this.props.profileReducer.result.image}
-                    </p>
-                    <img
-                      src={`${imageUrl}/images/${
-                        this.isProfile() &&
-                        this.props.profileReducer.result.image
-                      }?dummy=${Math.random()}`}
-                      style={{ maxWidth: 200 }}
-                    />
+                   
+              <dl class="dl-horizontal">
+                <dt>Firstname</dt>
+                <dd>{this.isProfile() && this.props.profileReducer.result.firstname}</dd>
+                <dt>Lastname</dt>
+                <dd>{this.isProfile() && this.props.profileReducer.result.lastname}</dd>
+                <dt>Birthdate</dt>
+                <dd>{this.isProfile() && this.props.profileReducer.result.birthdate}</dd>
+                <dt>Email</dt>
+                <dd>{this.isProfile() && this.props.profileReducer.result.email}</dd>
+              </dl>
                   </div>
 
                   {/* src={`${process.env.PUBLIC_URL}/images/ic_photo.png`} */}
 
                   <div className="tab-pane" id="settings">
                     <Formik
-                      initialValues={{
-                        firstname: "",
-                        lastname: "",
-                        birthdate: "",
+                        enableReinitialize
+                        initialValues={{
+                        firstname: this.isProfile() && this.props.profileReducer.result.firstname,
+                        lastname: this.isProfile() && this.props.profileReducer.result.lastname,
+                        birthdate: this.isProfile() && this.props.profileReducer.result.birthdate,
                       }}
                       onSubmit={async (values, { setSubmitting }) => {
                         console.log(values);

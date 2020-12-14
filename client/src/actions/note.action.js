@@ -41,11 +41,28 @@ export const AddNote = (history, value) => {
       .then((result) => {
         console.log(result);
         getState().appReducer.app.forceUpdate()
-        history.goBack();
+        history.push("/note");
       })
       .catch((error) => {
         //alert(JSON.stringify(error));
         //dispatch(setStateNoteToFailed());
+      });
+  };
+};
+
+
+export const getAllNote = () => {
+  return (dispatch, getState) => {
+    dispatch(setStateNoteToFetching());
+    axios
+      .get("/api/note/getallnote")
+      .then((result) => {
+        console.log(result);
+        dispatch(setStateNoteToSuccess(result.data));
+      })
+      .catch((error) => {
+        alert(JSON.stringify(error));
+        dispatch(setStateNoteToFailed());
       });
   };
 };

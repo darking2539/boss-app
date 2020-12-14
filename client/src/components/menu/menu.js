@@ -5,6 +5,26 @@ import * as actions from "./../../actions/profile.action";
 import { imageUrl } from "./../../constants";
 
 class Menu extends Component {
+  
+  adminLogin = ()=>{
+
+      if(localStorage.getItem('userid') == "admin@gmail.com"){
+        return true
+      }else{
+      return false
+  }
+}
+  
+  renderAdmin = () => {
+    return(
+      <li>
+        <Link to="/admin">
+          <i className="fa fa-users" /> <span>ADMIN</span>
+        </Link>
+      </li>
+    )
+  }
+  
   isProfile = () => {
     return this.props.profileReducer.result !== null;
   };
@@ -61,7 +81,7 @@ class Menu extends Component {
           <ul className="sidebar-menu" data-widget="tree">
             <li className="header">MAIN PAGE</li>
             <li className="treeview">
-              <a href="">
+              <a href="/profile">
                 <i className="fa fa-dashboard" /> <span>DEVICE</span>
                 <span className="pull-right-container">
                   <i className="fa fa-angle-left pull-right" />
@@ -97,6 +117,9 @@ class Menu extends Component {
                 <i className="fa fa-user" /> <span>PROFILE</span>
               </Link>
             </li>
+
+            {/* Linktoadmin */}
+            {this.adminLogin() &&this.renderAdmin()}
 
             <li className="header">WEBSITE BY EDITOR</li>
             <li>

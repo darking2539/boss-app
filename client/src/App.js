@@ -13,6 +13,7 @@ import AddNote from "./components/addnote/addnote";
 import MainNote from "./components/mainnote/mainnote";
 import noteViewver from "./components/noteviewver/noteviewver";
 import Editnote from "./components/editnote/editnote";
+import Adminpage from "./components/adminpage/adminpage";
 import {
   BrowserRouter as Router,
   Route,
@@ -69,6 +70,7 @@ class App extends Component {
             <SecuredRoute path="/addnote" component={AddNote} />
             <SecuredRoute path="/editnote" component={Editnote} />
             <SecuredRoute path="/noteviewver" component={noteViewver} />
+            <SecuredRoute path="/admin" component={Adminpage} />
             <Route exact={true} path="/" component={this.redirectToLogin} />
             <Route path="*" component={this.redirectToLogin} />
           </Switch>

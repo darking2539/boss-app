@@ -37,6 +37,24 @@ class Editnote extends Component {
     this.props.EditNote(this.props.history,this.state);
 
   }
+
+  ShowNote = () => {
+    if(this.props.noteviewReducer.result !== null){
+      return this.props.noteviewReducer.result.title
+    }
+    else{
+      return "Please Select Note From Your Note"
+    }
+  };
+
+  ColorNote = () => {
+    if(this.props.noteviewReducer.result !== null){
+      return {color: '#5D3DE8', marginBottom: 10}
+    }
+    else{
+      return {color: 'red', marginBottom: 10}
+    }
+  };
   
   isEditNote = () => {
     return this.props.noteviewReducer.result !== null;
@@ -103,8 +121,15 @@ class Editnote extends Component {
                 </div>
                 <div className="box-body pad">
                 <form> 
-                  <h3 className="box-title" style = { {color: '#5D3DE8'}}>{this.isEditNote() && this.props.noteviewReducer.result.title}</h3>                  
-                  <h3 className="box-title" style = { {color: 'red'}}>{this.isNotEditNote() && "Please Select Note From Your Note"}</h3> 
+                <input
+                        type="search"
+                        className="form-control input-lg"
+                        style={{ marginTop: 10, marginBottom: 10 }}
+                        value = {this.ShowNote()}
+                        style = {this.ColorNote()}
+                        readOnly 
+                      />
+                  
                   <Editor
                     apiKey="jcg99s8ig97rj7r9rmmnim1ybe5t3hnsdfinxeqab8ue9jkg"
                     initialValue = {this.isEditNote() && this.props.noteviewReducer.result.body}
@@ -137,7 +162,7 @@ class Editnote extends Component {
                     </button>
                     <button
                       onClick={() => {
-                        this.props.history.goBack();
+                        this.props.history.push("/note");
                       }}
                       type="Button"
                       className="btn btn-default pull-right"

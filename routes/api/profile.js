@@ -20,7 +20,7 @@ uploadImage = async (files, doc) => {
     await fs.moveSync(files.image.path, newpath);
 
     // Update database
-    //User.findByIdAndUpdate( doc.userid, {image: doc.userid} ).exec();
+    User.findByIdAndUpdate( doc.userid, {image: doc.image} ).exec();
     return newpath;
   }
 };
@@ -65,7 +65,7 @@ router.put("/updateprofile", async (req,res)=>{
       const birthdate = fields.birthdate;
       console.log(fields)
       let result = await uploadImage(files, fields);
-      User.findByIdAndUpdate( userid, {firstname: firstname, lastname: lastname, birthdate: birthdate, image: userid + ".jpg"} )
+      User.findByIdAndUpdate( userid, {firstname: firstname, lastname: lastname, birthdate: birthdate} )
       .exec(function(err, data) {
         if (err) {
           const result = {
@@ -202,5 +202,61 @@ router.put("/editnotes", async (req,res) =>{
     }
   })
 
-module.exports = router;
+// @route GET /api/profile/admin
+// @desc Note getting
+// @access Public
+router.get("/admin", async (req,res) =>{
+  try {
+    User.find()
+      .sort({ Time: -1 })
+      .limit(100)
+      .exec(function(err, data) {
+        if (err) {
+          const result = {
+            error: true,
+            error_msg: err.message
+          };
+          return res.status(500).json(result);
+        }
+        return res.json(data);
+      });
+  } catch (err) {
+    console.log(err);
+    const result = {
+      error: true,
+      error_msg: err.message
+    };
+    return res.status(500).json(result);
+  }
+})
+
+// @route POST /api/profile/admindelete
+// @desc Note getting
+// @access Public
+router.post("/admindelete", async (req,res) =>{
+  try{  
+    const userid = req.body.userid;
+    User.remove( {_id: userid} )
+      .exec(function(err, data) {
+        if (err) {
+          const result = {
+            error: true,
+            error_msg: err.message
+          };
+          return res.status(500).json(result);
+        }
+        return res.json(data);
+      });
+  }catch (err) {
+      console.log(err);
+      const result = {
+        error: true,
+        error_msg: err.message
+      };
+      return res.status(500).json(result);
+    }
+  })
+
+
+  module.exports = router;
 

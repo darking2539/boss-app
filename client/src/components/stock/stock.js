@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import * as actions from './../../actions/stock.action'
 import { connect } from 'react-redux'
 import _ from 'lodash'
+import Moment from "react-moment";
 
 class Stock extends Component {
   
@@ -36,7 +37,7 @@ class Stock extends Component {
     return result.map((d) => (
       <tr>
           <th scope="row">{num++}</th>
-          <td>{d.Time}</td>
+          <td><Moment format="DD/MM/YYYY hh:mm:ss">{d.Time}</Moment></td>
           <td style={{ color: "red" }}>{d.DevAddr}</td>
           <td>{d.DevEUI}</td>
           <td style={{ color: "blue" }}>{d.payload_hex}</td>
@@ -58,7 +59,8 @@ class Stock extends Component {
     return (
       <div className="content-wrapper">
         {/* Main content */}
-        <section className="content">
+        <div class = "box-header with-border">
+          <section className="content">
           <div className="row">
             <div className="col-xs-12">
               <div className="box">
@@ -107,6 +109,7 @@ class Stock extends Component {
           </div>
           {/* /.row */}
         </section>
+        </div>
         {/* /.content */}
       </div>
     );

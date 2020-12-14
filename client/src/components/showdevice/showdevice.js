@@ -120,6 +120,7 @@ class ShowDevice extends Component {
     return (
       <div className="content-wrapper">
         {/* Main content */}
+        <div class = "box-header with-border">
         <section className="content">
           <div className="row">
             <div className="col-xs-12">
@@ -174,6 +175,7 @@ class ShowDevice extends Component {
           </div>
           {/* /.row */}
         </section>
+        </div>
         {/* /.content */}
       </div>
     );

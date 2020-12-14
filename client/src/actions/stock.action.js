@@ -21,7 +21,7 @@ const setStateStockToFailed = () => ({
 });
 
 const doGetProducts = (dispatch)=>{
-    console.log("testboss")
+    //console.log("testboss")
     axios.get("/api/iot-received").then(result=>{
         dispatch(setStateStockToSuccess(result.data))
     }).catch(error=>{
