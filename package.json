@@ -6,6 +6,7 @@
   "scripts": {
     "client-install": "npm install --prefix client",
     "start": "node server.js",
+    "build": "babel lib -d dist/lib | babel helper -d dist/helper",
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
