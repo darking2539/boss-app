@@ -127,7 +127,7 @@ class ShowDevice extends Component {
               {/* /.box */}
               <div className="box">
                 {/* /.box-header */}
-                <div className="box-body">
+                <div className="table-responsive mailbox-messages">
                   <div className="col-xs-6">
                     <input
                       onChange={this.onChange}
@@ -144,7 +144,7 @@ class ShowDevice extends Component {
 
                   <Link
                     to="/adddevice"
-                    style={{ float: "right", marginBottom: 10, width: 150 }}
+                    style={{  marginTop: 10, width: 150, borderRadius: 20 }}
                     className="btn btn-success btn-lg"
                   >
                     Add DEVICE

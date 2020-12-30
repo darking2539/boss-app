@@ -1,0 +1,51 @@
+/* SVG as pseudo element's content */
+.ion-ios-hospital {
+    content: url('https://api.iconify.design/carbon:hospital.svg?color=white&height=32');
+    vertical-align: -0.125em;
+    vertical-align: -0.125em;
+    width: 100%;
+    padding: 10px;
+ }
+ 
+ /* SVG as pseudo element's background image */
+ .ion-ios-bone {
+    content: url('https://api.iconify.design/fa-solid:skull-crossbones.svg?color=white&height=16');
+    vertical-align: -0.125em;
+    vertical-align: -0.125em;
+    margin-bottom: auto;
+    width: 90%;
+    padding: 10px;
+ }
+
+ .ion-ios-drug {
+    content: url('https://api.iconify.design/whh:antivirusalt.svg?color=white&height=14');
+    vertical-align: -0.2em;
+    margin: auto;
+    width: 100%;
+    padding: 10px;
+ }
+
+ .ion-ios-virus {
+    content: url('https://api.iconify.design/mdi:virus-outline.svg?color=white&height=24');
+    vertical-align: -0.125em;
+    margin: auto;
+    width: 100%;
+    padding: 10px;
+ }
+ 
+ .info-box-text {
+    margin-left: 5px;
+    margin-top: 9.5px;
+    margin-bottom: 5px;
+}
+
+.info-box-number {
+    margin-left: 5px;
+    margin-bottom: 20px;
+}
+
+
+.info-box {
+    border: 2px solid black;
+}
+

@@ -63,7 +63,7 @@ class Stock extends Component {
           <section className="content">
           <div className="row">
             <div className="col-xs-12">
-              <div className="box">
+            <div className="table-responsive mailbox-messages">
                 <div className="col-xs-6">
                       <input
                         onChange={this.onChange}
@@ -75,9 +75,7 @@ class Stock extends Component {
                 </div>
                 {/* /.box-header */}
                 <div className="box-body">
-                  <table
-                    className="table table-bordered table-hover"
-                  >
+                <table className="table table-hover table-striped">
                     <thead>
                       <tr>
                         <th>#</th>

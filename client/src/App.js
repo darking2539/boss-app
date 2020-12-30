@@ -5,7 +5,6 @@ import Login from "./components/login/login";
 import Menu from "./components/menu/menu";
 import Register from "./components/register/register";
 import Stock from "./components/stock/stock";
-import Searchlog from "./components/searchlog/searchlog";
 import AddDevice from "./components/addDevice/addDevice";
 import ShowDevice from "./components/showdevice/showdevice";
 import MainProfile from "./components/mainprofile/mainprofile";
@@ -14,6 +13,8 @@ import MainNote from "./components/mainnote/mainnote";
 import noteViewver from "./components/noteviewver/noteviewver";
 import Editnote from "./components/editnote/editnote";
 import Adminpage from "./components/adminpage/adminpage";
+import Covid from "./components/coviddashboard/coviddashboard"
+
 import {
   BrowserRouter as Router,
   Route,
@@ -71,6 +72,7 @@ class App extends Component {
             <SecuredRoute path="/editnote" component={Editnote} />
             <SecuredRoute path="/noteviewver" component={noteViewver} />
             <SecuredRoute path="/admin" component={Adminpage} />
+            <SecuredRoute path="/covid" component={Covid} />
             <Route exact={true} path="/" component={this.redirectToLogin} />
             <Route path="*" component={this.redirectToLogin} />
           </Switch>

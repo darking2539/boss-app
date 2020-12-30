@@ -68,11 +68,15 @@ class Header extends Component {
                   <li className="user-body">
                     <div className="row">
                      
-                      <div className="col-xs-6 text-center">
+                      <div className="col-xs-4 text-center">
                         <Link to ="/showdevice">DEVICE</Link>
                       </div>
-                      <div className="col-xs-6 text-center">
+                      <div className="col-xs-4 text-center">
                         <Link to ="/note">NOTE EDITOR</Link>
+                      </div>
+
+                      <div className="col-xs-4 text-center">
+                        <Link to ="/covid">COVID BOARD</Link>
                       </div>
                     </div>
                     {/* /.row */}

@@ -118,6 +118,12 @@ class Menu extends Component {
               </Link>
             </li>
 
+            <li>
+              <Link to="/covid">
+                <i className="fa fa-pie-chart" /> <span>COVID DASHBOARD</span>
+              </Link>
+            </li>
+
             {/* Linktoadmin */}
             {this.adminLogin() &&this.renderAdmin()}
 

@@ -152,7 +152,7 @@ class Adminpage extends Component {
                 {/* /.box */}
                 <div className="box">
                   {/* /.box-header */}
-                  <div className="box-body">
+                  <div className="table-responsive mailbox-messages">
                     <h4>SHOW ALL USER</h4>
                     <table className="table table-bordered table-striped">
                       <thead>
