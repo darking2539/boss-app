@@ -40,6 +40,7 @@ export const login = (history, credential,result) => {
     if (result.data.success === true ) {
       localStorage.setItem(server.LOGIN_PASSED, YES);
       localStorage.setItem("userid", result.data.email);
+      localStorage.setItem("iduser", result.data.userid);
       getState().appReducer.app.forceUpdate()
       history.push("/profile");
       dispatch(setLoginStateToSuccess(result.data));

@@ -8,27 +8,46 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 const MySwal = withReactContent(Swal);
 
-
-
 class Mainprofile extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      firstname: "",
-      lasname: "",
-      birthdate: "",
-      image: "",
+      currentPassword: "",
+      newPassword: "",
+      confirmNewPassword: "",
+      userid: localStorage.getItem('iduser')
     };
   }
 
   async componentDidMount() {
-    this.props.ShowProfile(this.props.history);
+    this.props.ShowProfile(this.props.history)   
   }
 
   isProfile = () => {
     return this.props.profileReducer.result !== null;
   };
+
+  showError = ()=>{
+
+    return(
+      <div className="alert alert-danger alert-dismissible">
+      <button type="button" className="close" data-dismiss="alert" aria-hidden="true"  >×</button>
+      <h4><i className="icon fa fa-ban" />Error!</h4> 
+      <p>{this.props.changepwReducer.data.field}</p>
+      <p>{this.props.changepwReducer.data.password}</p>
+      </div>
+    )
+  }
+
+  showSuccess = ()=>{
+    return(
+      <div class="alert alert-success alert-dismissible">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true" refresh="true" >×</button>
+      <h4><i class="icon fa fa-check"></i> Change Password</h4>Successful
+      </div>
+    )
+  }
 
   showForm = ({
     values,
@@ -246,10 +265,11 @@ class Mainprofile extends Component {
                             cancelButtonText: "CANCEL",
                           }).then((result) => {
                             const data = {
-                              education: document.getElementById("education").value,
-                              userid: this.props.profileReducer.result._id
+                              education: document.getElementById("education")
+                                .value,
+                              userid: this.props.profileReducer.result._id,
                             };
-          
+
                             if (result.value) {
                               console.log(data);
                               this.props.editEducation(data);
@@ -278,29 +298,30 @@ class Mainprofile extends Component {
                     <div class="box-tools pull-right">
                       <button
                         onClick={() =>
-                        MySwal.fire({
-                          title: "Edit Location",
-                          text: "You won't be able to revert this!",
-                          html: `
+                          MySwal.fire({
+                            title: "Edit Location",
+                            text: "You won't be able to revert this!",
+                            html: `
                               <input class="swal2-input" id="location" type="text" placeholder="Enter your New Location" /><br />
                                 `,
-                          type: "warning",
-                          showCancelButton: true,
-                          confirmButtonText: "CONFIRM",
-                          cancelButtonText: "CANCEL",
-                        }).then((result) => {
-                          const data = {
-                            location: document.getElementById("location").value,
-                            userid: this.props.profileReducer.result._id
-                          };
-        
-                          if (result.value) {
-                            console.log(data);
-                            this.props.editLocation(data);
-                            window.location.reload();
-                          }
-                        })
-                      }
+                            type: "warning",
+                            showCancelButton: true,
+                            confirmButtonText: "CONFIRM",
+                            cancelButtonText: "CANCEL",
+                          }).then((result) => {
+                            const data = {
+                              location: document.getElementById("location")
+                                .value,
+                              userid: this.props.profileReducer.result._id,
+                            };
+
+                            if (result.value) {
+                              console.log(data);
+                              this.props.editLocation(data);
+                              window.location.reload();
+                            }
+                          })
+                        }
                         type="button"
                         class="btn btn-box-tool"
                         title="Edit"
@@ -335,9 +356,9 @@ class Mainprofile extends Component {
                           }).then((result) => {
                             const data = {
                               skills: document.getElementById("skills").value,
-                              userid: this.props.profileReducer.result._id
+                              userid: this.props.profileReducer.result._id,
                             };
-          
+
                             if (result.value) {
                               console.log(data);
                               this.props.editSkills(data);
@@ -379,9 +400,9 @@ class Mainprofile extends Component {
                           }).then((result) => {
                             const data = {
                               notes: document.getElementById("notes").value,
-                              userid: this.props.profileReducer.result._id
+                              userid: this.props.profileReducer.result._id,
                             };
-          
+
                             if (result.value) {
                               console.log(data);
                               this.props.editNotes(data);
@@ -421,31 +442,53 @@ class Mainprofile extends Component {
                       Settings
                     </a>
                   </li>
+                  <li>
+                    <a href="#changepassword" data-toggle="tab">
+                      Change Password
+                    </a>
+                  </li>
                 </ul>
                 <div className="tab-content">
                   <div className="active tab-pane" id="activity">
-                   
-              <dl class="dl-horizontal">
-                <dt>Firstname</dt>
-                <dd>{this.isProfile() && this.props.profileReducer.result.firstname}</dd>
-                <dt>Lastname</dt>
-                <dd>{this.isProfile() && this.props.profileReducer.result.lastname}</dd>
-                <dt>Birthdate</dt>
-                <dd>{this.isProfile() && this.props.profileReducer.result.birthdate}</dd>
-                <dt>Email</dt>
-                <dd>{this.isProfile() && this.props.profileReducer.result.email}</dd>
-              </dl>
+                    <dl class="dl-horizontal">
+                      <dt>Firstname</dt>
+                      <dd>
+                        {this.isProfile() &&
+                          this.props.profileReducer.result.firstname}
+                      </dd>
+                      <dt>Lastname</dt>
+                      <dd>
+                        {this.isProfile() &&
+                          this.props.profileReducer.result.lastname}
+                      </dd>
+                      <dt>Birthdate</dt>
+                      <dd>
+                        {this.isProfile() &&
+                          this.props.profileReducer.result.birthdate}
+                      </dd>
+                      <dt>Email</dt>
+                      <dd>
+                        {this.isProfile() &&
+                          this.props.profileReducer.result.email}
+                      </dd>
+                    </dl>
                   </div>
 
                   {/* src={`${process.env.PUBLIC_URL}/images/ic_photo.png`} */}
 
                   <div className="tab-pane" id="settings">
                     <Formik
-                        enableReinitialize
-                        initialValues={{
-                        firstname: this.isProfile() && this.props.profileReducer.result.firstname,
-                        lastname: this.isProfile() && this.props.profileReducer.result.lastname,
-                        birthdate: this.isProfile() && this.props.profileReducer.result.birthdate,
+                      enableReinitialize
+                      initialValues={{
+                        firstname:
+                          this.isProfile() &&
+                          this.props.profileReducer.result.firstname,
+                        lastname:
+                          this.isProfile() &&
+                          this.props.profileReducer.result.lastname,
+                        birthdate:
+                          this.isProfile() &&
+                          this.props.profileReducer.result.birthdate,
                       }}
                       onSubmit={async (values, { setSubmitting }) => {
                         console.log(values);
@@ -467,7 +510,98 @@ class Mainprofile extends Component {
                       {(props) => this.showForm(props)}
                     </Formik>
                   </div>
-                  {/* /.tab-pane */}
+                  <div className="tab-pane" id="changepassword">
+                    <form className="form-horizontal">
+                      <div className="box-body">
+                        <div className="form-group">
+                          <label
+                            htmlFor="inputPassword3"
+                            className="col-sm-3 control-label"
+                          >
+                            Current Password
+                          </label>
+                          <div className="col-sm-9">
+                            <input
+                              onChange={(e) =>
+                                this.setState({
+                                  currentPassword: e.target.value,
+                                })
+                              }
+                              type="password"
+                              className="form-control"
+                              id="inputPassword1"
+                              placeholder="Password"
+                            />
+                          </div>
+                        </div>
+                        <div className="form-group">
+                          <label
+                            htmlFor="inputPassword3"
+                            className="col-sm-3 control-label"
+                          >
+                            New Password
+                          </label>
+                          <div className="col-sm-9">
+                            <input
+                              onChange={(e) =>
+                                this.setState({ newPassword: e.target.value })
+                              }
+                              type="password"
+                              className="form-control"
+                              id="inputPassword2"
+                              placeholder="Password"
+                            />
+                          </div>
+                        </div>
+                        <div className="form-group">
+                          <label
+                            htmlFor="inputPassword3"
+                            className="col-sm-3 control-label"
+                          >
+                            Confirmed New Password
+                          </label>
+                          <div className="col-sm-9">
+                            <input
+                              onChange={(e) =>
+                                this.setState({
+                                  confirmNewPassword: e.target.value,
+                                })
+                              }
+                              type="password"
+                              className="form-control"
+                              id="inputPassword3"
+                              placeholder="Password"
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      {this.props.changepwReducer.isError && this.showError()} 
+                      {this.props.changepwReducer.result && this.showSuccess()}
+                      {/* /.box-body */}
+                      <div className="box-footer">
+                        <button
+                          onClick={(e) => { 
+                            e.preventDefault();
+                            console.log(this.state)
+                            this.props.changepassword(this.state, this.props.history);
+                          }}
+                          type="submit"
+                          className="btn btn-info pull-right"
+                          style={{ marginLeft: 10 }}
+                        >
+                          Confirmed
+                        </button>
+                        <button
+                          type="cancel"
+                          className="btn btn-default pull-right"
+                        >
+                          Cancel
+                        </button>
+                      </div>
+                      {/* /.box-footer */}
+                    </form>
+                  </div>
                 </div>
                 {/* /.tab-content */}
               </div>
@@ -483,9 +617,10 @@ class Mainprofile extends Component {
   }
 }
 
-const mapStateToProps = ({ profileReducer, appReducer }) => ({
+const mapStateToProps = ({ profileReducer, appReducer, changepwReducer }) => ({
   profileReducer,
   appReducer,
+  changepwReducer
 });
 
 const mapDispatchToProps = {

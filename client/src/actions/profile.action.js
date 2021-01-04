@@ -3,7 +3,9 @@ import {
   HTTP_PROFILE_SUCCESS,
   HTTP_PROFILE_FETCHING,
   HTTP_PROFILE_FAILED,
-  server,
+  HTTP_CHANGEPW_FETCHING, 
+  HTTP_CHANGEPW_SUCCESS, 
+  HTTP_CHANGEPW_FAILED
 } from "../constants";
 
 const setStateProfileToSuccess = (payload) => ({
@@ -17,6 +19,20 @@ const setStateProfileToFetching = () => ({
 
 const setStatProfileToFailed = () => ({
   type: HTTP_PROFILE_FAILED,
+});
+
+const setStateChangepwToSuccess = (payload) => ({
+  type: HTTP_CHANGEPW_SUCCESS,
+  data: payload,
+});
+
+const setStateChangepwToFetching = () => ({
+  type: HTTP_CHANGEPW_FETCHING,
+});
+
+const setStatChangepwToFailed = (payload) => ({
+  type: HTTP_CHANGEPW_FAILED,
+  data: payload,
 });
 
 export const ShowMain = (history) => {
@@ -127,3 +143,22 @@ export const editNotes = (value) => {
   };
 };
 
+export const changepassword = (value, history) => {
+  return (dispatch, getState) => {
+    dispatch(setStateChangepwToFetching());
+    axios
+      .post("/api/v2/authen/changepassword", value )
+      .then((result) => {
+        if (result.data.success === 'success'){
+          dispatch(setStateChangepwToSuccess(result.data));
+          setTimeout( () =>  {window.location.reload();} ,1500)
+        } else{
+          dispatch(setStatChangepwToFailed(result.data));
+        }
+      })
+      .catch((error) => {
+        alert(JSON.stringify(error));
+        dispatch(setStatChangepwToFailed());
+      });
+  };
+};

@@ -48,6 +48,11 @@ export const HTTP_ADMIN_FETCHING = "HTTP_ADMIN_FETCHING";
 export const HTTP_ADMIN_SUCCESS = "HTTP_ADMIN_SUCCESS";
 export const HTTP_ADMIN_FAILED = "HTTP_ADMIN_FAILED";
 
+// Profile Page
+export const HTTP_CHANGEPW_FETCHING = "HTTP_CHANGEPW_FETCHING";
+export const HTTP_CHANGEPW_SUCCESS = "HTTP_CHANGEPW_SUCCESS";
+export const HTTP_CHANGEPW_FAILED = "HTTP_CHANGEPW_FAILED";
+
 // Covid Page
 export const HTTP_COVID_FETCHING = "HTTP_COVID_FETCHING";
 export const HTTP_COVID_SUCCESS = "HTTP_COVID_SUCCESS";
@@ -74,8 +79,8 @@ export const NETWORK_TIMEOUT_MESSAGE = 'A network timeout has occurred, Please t
 export const UPLOAD_PHOTO_FAIL_MESSAGE = 'An error has occurred. The photo was unable to upload.' 
 
 
-export const apiUrl =  ""; ///api/v2
-export const imageUrl = "";
+export const apiUrl =  "http://localhost:8000/"; ///api/v2
+export const imageUrl = "http://localhost:8000/";
 
 export const YES = 'YES'
 export const NO = 'NO'

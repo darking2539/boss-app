@@ -49,3 +49,16 @@ export const deleteUser  = (history, userid) => {
   };
 };
 
+export const adminChangePassword  = (value) => {
+  return (dispatch, getState) => {  
+    axios
+      .post("/api/v2/authen/adminchangepassword", value)
+      .then((result) => {
+        alert(JSON.stringify(result.data));
+      })
+      .catch((error) => {
+        alert(JSON.stringify(error));
+      });
+  };
+};
+

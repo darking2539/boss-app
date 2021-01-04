@@ -46,7 +46,39 @@ class Adminpage extends Component {
           <th>{d.lastname}</th>
           <th>{d.birthdate}</th>
           <th><Moment format="DD/MM/YYYY">{d.date}</Moment></th>
-          <th><button
+          <th>
+          <button
+              onClick={() =>
+                MySwal.fire({
+                  title: "Edit Password",
+                  text: "You won't be able to revert this!",
+                  html: `
+                      <input class="swal2-input" id="newPassword" type="password" placeholder="Enter your New Password" /><br />
+                      <input class="swal2-input" id="confirmNewPassword" type="password" placeholder="Enter your New Confirmed Password" /><br />
+                        `,
+                  type: "warning",
+                  showCancelButton: true,
+                  confirmButtonText: "CONFIRM",
+                  cancelButtonText: "CANCEL",
+                }).then((result) => {
+                  const data = {
+                    userid: d._id,
+                    newPassword: document.getElementById("newPassword").value,
+                    confirmNewPassword: document.getElementById("confirmNewPassword").value
+                  };
+                  if (result.value) {
+                    console.log(data);
+                    this.props.adminChangePassword(data);
+                  }
+                })
+              }
+              type="button"
+              className="btn btn-info"
+            >
+              ChangePW
+            </button>
+            <span style={{ color: "grey" }}> | </span>
+            <button
               onClick={() => {
                 MySwal.fire({
                   title: "Are you sure to delete?",
@@ -65,7 +97,8 @@ class Adminpage extends Component {
               className="btn btn-danger"
             >
               Delete
-            </button></th>
+            </button>
+          </th>
       </tr>
     ));
   }};
