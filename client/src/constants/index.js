@@ -79,8 +79,8 @@ export const NETWORK_TIMEOUT_MESSAGE = 'A network timeout has occurred, Please t
 export const UPLOAD_PHOTO_FAIL_MESSAGE = 'An error has occurred. The photo was unable to upload.' 
 
 
-export const apiUrl =  ""; ///api/v2
-export const imageUrl = "";
+export const apiUrl =  "http://localhost:8000/"; ///api/v2
+export const imageUrl = "http://localhost:8000/";
 
 export const YES = 'YES'
 export const NO = 'NO'
@@ -95,4 +95,5 @@ export const server = {
     REPORT_URL: 'stock/report',    
     LOGIN_PASSED : 'yes',
 }
+
 

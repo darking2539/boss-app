@@ -31,9 +31,9 @@ class Menu extends Component {
 
   render() {
     return (
-      <aside className="main-sidebar">
+      <aside className="main-sidebar ">
         {/* sidebar: style can be found in sidebar.less */}
-        <section className="sidebar">
+        <section className="sidebar" >
           {/* Sidebar user panel */}
           <div className="user-panel">
             <div className="pull-left image">

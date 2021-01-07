@@ -7,3 +7,4 @@ class Editprofile extends Component {
 }
 
 export default Editprofile;
+
