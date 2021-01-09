@@ -8,8 +8,9 @@ import noteReducer from './note.reducer'
 import noteviewReducer from './noteview.reducer'
 import profileReducer from './profile.reducer'
 import adminReducer from './admin.reducer'
-import covidReducer from './covid.reducer'
+import spotifyReducer from './spotify.reducer'
 import changepwReducer from './changepw.reducer'
+import topMusicReducer from './topfivemusic.reducer'
 
 export default combineReducers({registerReducer, 
     loginReducer, 
@@ -20,5 +21,6 @@ export default combineReducers({registerReducer,
     noteviewReducer,
     profileReducer,
     adminReducer,
-    covidReducer,
-    changepwReducer})
+    spotifyReducer,
+    changepwReducer,
+    topMusicReducer})

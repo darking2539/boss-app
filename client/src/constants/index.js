@@ -53,10 +53,15 @@ export const HTTP_CHANGEPW_FETCHING = "HTTP_CHANGEPW_FETCHING";
 export const HTTP_CHANGEPW_SUCCESS = "HTTP_CHANGEPW_SUCCESS";
 export const HTTP_CHANGEPW_FAILED = "HTTP_CHANGEPW_FAILED";
 
-// Covid Page
-export const HTTP_COVID_FETCHING = "HTTP_COVID_FETCHING";
-export const HTTP_COVID_SUCCESS = "HTTP_COVID_SUCCESS";
-export const HTTP_COVID_FAILED = "HTTP_COVID_FAILED";
+// Spontify frofile Page
+export const HTTP_SPOTIFY_FETCHING = "HTTP_SPOTIFY_FETCHING";
+export const HTTP_SPOTIFY_SUCCESS = "HTTP_SPOTIFY_SUCCESS";
+export const HTTP_SPOTIFY_FAILED = "HTTP_SPOTIFY_FAILED";
+
+// Top Music
+export const HTTP_TOPMUSIC_FETCHING = "HTTP_TOPMUSIC_FETCHING";
+export const HTTP_TOPMUSIC_SUCCESS = "HTTP_TOPMUSIC_SUCCESS";
+export const HTTP_TOPMUSIC_FAILED = "HTTP_TOPMUSIC_FAILED";
 
 
 export const SHOP_UPDATE_ORDER = "SHOP_UPDATE_ORDER";
@@ -81,6 +86,7 @@ export const UPLOAD_PHOTO_FAIL_MESSAGE = 'An error has occurred. The photo was u
 
 export const apiUrl =  ""; ///api/v2
 export const imageUrl = "";
+export const callBackUrl = "https://abosszz-app.herokuapp.com"; //for spotify
 
 export const YES = 'YES'
 export const NO = 'NO'

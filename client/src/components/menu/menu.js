@@ -124,6 +124,12 @@ class Menu extends Component {
               </Link>
             </li>
 
+            <li>
+              <Link to="/spontify">
+                <i className="fa fa-music" /> <span>SPOTIFY API</span>
+              </Link>
+            </li>
+
             {/* Linktoadmin */}
             {this.adminLogin() &&this.renderAdmin()}
 

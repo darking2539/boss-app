@@ -56,6 +56,16 @@ if (process.env.NODE_ENV == "production") {
   app.use(morgan("dev"));
 }
 
+//spontify login
+app.get('/spontifylogin', function(req, res) {
+  var scopes = 'user-read-private user-read-email user-read-recently-played user-top-read';
+  res.redirect('https://accounts.spotify.com/authorize' +
+    '?response_type=code' +
+    '&client_id=' +'0dad778342ae4714b447cbfb1259e3be' +
+    (scopes ? '&scope=' + encodeURIComponent(scopes) : '') +
+    '&redirect_uri=' + encodeURIComponent("http://localhost:3000/spontify"));
+  });
+
 if (process.env.NODE_ENV === "production") {
   //Express will serve up production assets
   //like our main.js file, or main.css file!

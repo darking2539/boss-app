@@ -184,7 +184,7 @@ export default function Coviddashboard() {
     console.log(start_array, end_array, time_interval)
 
 
-    for (let i = start_array; i < end_array-1; i=i+time_interval) {
+    for (let i = start_array; i < end_array-2; i=i+time_interval) {
       datekey.push(array[i].Date);
       value_confirmed.push(array[i].Confirmed);
       value_recovered.push(array[i].Recovered)
@@ -340,8 +340,8 @@ export default function Coviddashboard() {
                     <Bar
                       data={covidDataTop5}
                       yAxisID={0}
-                      width={10}
-                      height={188.5}
+                      width={200}
+                      height={200}
                       options={{ maintainAspectRatio: false }}
                     />
                   </div>
@@ -417,7 +417,7 @@ export default function Coviddashboard() {
                     </div>
                   </div>
                   <div className="box-body text-center">
-                    <Line data={covidTimeSeries} width={350} />
+                    <Line data={covidTimeSeries} width={100} height={25}/>
                   </div>
               </div>
               </div>

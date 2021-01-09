@@ -14,6 +14,7 @@ import noteViewver from "./components/noteviewver/noteviewver";
 import Editnote from "./components/editnote/editnote";
 import Adminpage from "./components/adminpage/adminpage";
 import Covid from "./components/coviddashboard/coviddashboard"
+import Spontify from "./components/spontify/spontify"
 
 import {
   BrowserRouter as Router,
@@ -73,6 +74,7 @@ class App extends Component {
             <SecuredRoute path="/noteviewver" component={noteViewver} />
             <SecuredRoute path="/admin" component={Adminpage} />
             <SecuredRoute path="/covid" component={Covid} />
+            <SecuredRoute path="/spontify" component={Spontify} />
             <Route exact={true} path="/" component={this.redirectToLogin} />
             <Route path="*" component={this.redirectToLogin} />
           </Switch>

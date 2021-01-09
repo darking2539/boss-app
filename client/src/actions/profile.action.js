@@ -56,7 +56,7 @@ export const ShowMain = (history) => {
 };
 
 
-export const ShowProfile = (history) => {
+export const ShowProfile = () => {
   return (dispatch, getState) => {
     dispatch(setStateProfileToFetching());
     axios
@@ -67,7 +67,7 @@ export const ShowProfile = (history) => {
         console.log(result);
         dispatch(setStateProfileToSuccess(result.data));
         getState().appReducer.app.forceUpdate();
-        history.push("/profile");
+        //history.push("/profile");
       })
       .catch((error) => {
         alert(JSON.stringify(error));
