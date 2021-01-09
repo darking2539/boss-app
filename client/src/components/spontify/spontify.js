@@ -62,6 +62,7 @@ export default function Spontify() {
       .post("https://accounts.spotify.com/api/token", get_token, header)
       .then((result) => {
         console.log(result.data);
+        localStorage.setItem("access_token",result.data.access_token);
         dispatch(spotifyaction.getProfile(result.data));
       });
   }
