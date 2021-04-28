@@ -21,4 +21,4 @@ Capture for this web app
 ![yournote](https://user-images.githubusercontent.com/39507608/116391191-0da61800-a849-11eb-8513-94b3e7938e65.JPG)
 ![spotify](https://user-images.githubusercontent.com/39507608/116391153-0252ec80-a849-11eb-991a-70bc8a7c59ca.JPG)
 
-Link for login this web app: https://abosszz-app.herokuapp.com/
+Link for login this web app: https://abosszz-app.herokuapp.com/ (Please wait around 30 second for awake app)
