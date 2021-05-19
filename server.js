@@ -63,7 +63,7 @@ app.get('/spontifylogin', function(req, res) {
     '?response_type=code' +
     '&client_id=' +'0dad778342ae4714b447cbfb1259e3be' +
     (scopes ? '&scope=' + encodeURIComponent(scopes) : '') +
-    '&redirect_uri=' + encodeURIComponent("https://abosszz-app.herokuapp.com/spontify"));
+    '&redirect_uri=' + encodeURIComponent("https://boss-app.vercel.app/spontify"));
   });
 
 if (process.env.NODE_ENV === "production") {
