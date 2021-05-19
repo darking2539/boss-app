@@ -23,4 +23,4 @@ Capture for this web app
 
 Link for login this web app (Heroku Deployment): https://abosszz-app.herokuapp.com/ (Please wait around 30 second for awake app)
 
-Link for login this web app (Vercel Deployment):https://boss-app.vercel.app/
+Link for login this web app (Vercel Deployment): https://boss-app.vercel.app/
