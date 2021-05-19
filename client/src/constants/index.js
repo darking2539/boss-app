@@ -84,9 +84,9 @@ export const NETWORK_TIMEOUT_MESSAGE = 'A network timeout has occurred, Please t
 export const UPLOAD_PHOTO_FAIL_MESSAGE = 'An error has occurred. The photo was unable to upload.' 
 
 
-export const apiUrl =  ""; ///api/v2
-export const imageUrl = "";
-export const callBackUrl = "https://abosszz-app.herokuapp.com"; //for spotify
+export const apiUrl =  "https://boss-node.vercel.app"; ///api/v2
+export const imageUrl = "https://boss-node.vercel.app";
+export const callBackUrl = "https://boss-app.vercel.app"; //for spotify
 
 export const YES = 'YES'
 export const NO = 'NO'
